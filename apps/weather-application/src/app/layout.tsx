@@ -1,3 +1,5 @@
+import Providers from '../components/(Context)/Providers';
+import SideNav from '../components/(Navbar)/SideNav';
 import './global.css';
 
 export const metadata = {
@@ -12,7 +14,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="fixed h-screen w-full bg-gradient-to-br from-indigo-400 via-white to-blue-500">
+        <Providers>
+          <main>
+            <div className="flex flex-col md:flex-row bg-background-feature h-[100vh] text-black">
+                <SideNav />
+                {children}
+            </div>
+          </main>
+        </Providers>
+      </body>
     </html>
   );
 }
